@@ -1,0 +1,109 @@
+# This file created by conda-build 24.7.1
+# meta.yaml template originally from:
+# C:\b\abs_43e135shby\clone\recipe, last modified Mon Aug 12 16:00:15 2024
+# ------------------------------------------------
+
+package:
+  name: httpx
+  version: 0.27.0
+source:
+  patches:
+    - patches/0001-remove-fancy-pypi-readme.patch
+  sha256: a0cb88a46f32dc874e04ee956e4c2764aba2aa228f650b06788ba6bda2962ab5
+  url: https://pypi.io/packages/source/h/httpx/httpx-0.27.0.tar.gz
+build:
+  entry_points:
+    - httpx = httpx:main
+  number: '0'
+  script: C:\\b\\abs_43e135shby\\croot\\httpx_1723474830126\\_h_env\\python.exe -m
+    pip install . -vv --no-deps --no-build-isolation
+  string: py312haa95532_0
+requirements:
+  build:
+    - m2-msys2-runtime 2.5.0.17080.65c939c 3
+    - m2-patch 2.7.5 2
+    - msys2-conda-epoch 20160418 1
+  host:
+    - bzip2 1.0.8 h2bbff1b_6
+    - ca-certificates 2024.7.2 haa95532_0
+    - editables 0.3 py312haa95532_0
+    - expat 2.6.2 hd77b12b_0
+    - hatchling 1.21.1 py312haa95532_0
+    - libffi 3.4.4 hd77b12b_1
+    - openssl 3.0.14 h827c3e9_0
+    - packaging 24.1 py312haa95532_0
+    - pathspec 0.10.3 py312haa95532_0
+    - pip 24.0 py312haa95532_0
+    - pluggy 1.0.0 py312haa95532_1
+    - python 3.12.4 h14ffc60_1
+    - setuptools 72.1.0 py312haa95532_0
+    - sqlite 3.45.3 h2bbff1b_0
+    - tk 8.6.14 h0416ee5_0
+    - trove-classifiers 2023.10.18 py312haa95532_0
+    - tzdata 2024a h04d1e81_0
+    - vc 14.40 h2eaa2aa_0
+    - vs2015_runtime 14.40.33807 h98bb1dd_0
+    - wheel 0.43.0 py312haa95532_0
+    - xz 5.4.6 h8cc25b3_1
+    - zlib 1.2.13 h8cc25b3_1
+  run:
+    - anyio
+    - certifi
+    - httpcore >=1.0.0,<2.0.0a0
+    - idna
+    - python >=3.12,<3.13.0a0
+    - sniffio
+  run_constrained:
+    - click >=8.0.0,<9.0.0a0
+    - h2 >=3.0.0,<5.0.0a0
+    - pygment >=2.0.0,<3.0.0a0
+    - rich >=10.0.0,<14.0.0a0
+    - socksio >=1.0.0,<2.0.0a0
+test:
+  commands:
+    - pip check
+    - set PYTHONIOENCODING=utf8
+    - httpx --help
+    - pytest -vv tests -k "not ( test_socks_proxy_deprecated or test_socks_proxy or
+      test_multipart_encode_files_raises_exception_with_text_mode_file or test_write_timeout[asyncio]
+      or test_get[asyncio] or test_logging_ssl or test_get_ssl_cert_file)"
+  imports:
+    - httpx
+  requires:
+    - brotli-python
+    - chardet
+    - click
+    - h2
+    - pip
+    - pytest
+    - rich
+    - trio
+    - trustme
+    - uvicorn
+  source_files:
+    - tests
+about:
+  description: 'HTTPX is a fully featured HTTP client library for Python 3.
+
+    It includes an integrated command line client, has support
+
+    for both HTTP/1.1 and HTTP/2, and provides both sync and async APIs.
+
+    '
+  dev_url: https://github.com/encode/httpx
+  doc_url: https://www.python-httpx.org
+  home: https://github.com/encode/httpx
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE.md
+  summary: A next-generation HTTP client for Python.
+extra:
+  copy_test_source_files: true
+  final: true
+  flow_run_id: 43bfe019-f640-468f-a566-318e01869226
+  recipe-maintainers:
+    - florimondmanca
+    - primozgodec
+    - thewchan
+  remote_url: git@github.com:AnacondaRecipes/httpx-feedstock.git
+  sha: 104c873e35489c6b2dfdb128bf4d522874ac5a75
